@@ -1,0 +1,232 @@
+eltex-pg1-v14@eltex-2026-spring:~$ screen -S "$(whoami)_part2"
+
+
+eltex-pg1-v14@eltex-2026-spring:~$ script -a ~/$USER_part.log
+Script started, output log file is '/home/eltex-pg1-v14/.log'.
+eltex-pg1-v14@eltex-2026-spring:~$ export PS1='\u@\h:\w\$ '
+eltex-pg1-v14@eltex-2026-spring:~$ ls
+2026-01/                           .bash_history
+2026-02/                           .bash_logout
+2026-03/                           .bashrc
+2026-04/                           .bashrc.swp
+2026-05/                           .config/
+2026-06/                           .lesshst
+2026-07/                           .log
+2026-08/                           practice2_eltex-pg1-v14_part1.log
+2026-09/                           .profile
+2026-10/                           .ssh/
+2026-11/                           .viminfo
+2026-12/
+
+eltex-pg1-v14@eltex-2026-spring:~$ echo $HIST
+$HISTCMD         $HISTFILE        $HISTSIZE
+$HISTCONTROL     $HISTFILESIZE    $HISTTIMEFORMAT
+
+eltex-pg1-v14@eltex-2026-spring:~$ echo $HISTFILESIZE
+2000
+eltex-pg1-v14@eltex-2026-spring:~$ echo $HISTSIZE
+1000
+
+eltex-pg1-v14@eltex-2026-spring:~$ ls -la ~ | grep '^[^d].*\.'
+-rw-------  1 eltex-pg1-v14 eltex-pg1-v14   9022 Mar 19 19:35 .bash_history
+-rw-r--r--  1 eltex-pg1-v14 eltex-pg1-v14    220 Mar 30  2024 .bash_logout
+-rw-r--r--  1 eltex-pg1-v14 eltex-pg1-v14   3556 Mar  5 18:37 .bashrc
+-rw-r--r--  1 eltex-pg1-v14 eltex-pg1-v14  12288 Mar  5 18:49 .bashrc.swp
+-rw-------  1 eltex-pg1-v14 eltex-pg1-v14     20 Mar  5 18:40 .lesshst
+-rw-r--r--  1 eltex-pg1-v14 eltex-pg1-v14   8778 Mar 19 19:33 .log
+-rw-r--r--  1 eltex-pg1-v14 eltex-pg1-v14    807 Mar 30  2024 .profile
+-rw-------  1 eltex-pg1-v14 eltex-pg1-v14   5769 Mar  5 18:49 .viminfo
+
+eltex-pg1-v14@eltex-2026-spring:~$ export HISTTIMEFORMAT="%d.%m.%Y %H:%M:%S  "
+eltex-pg1-v14@eltex-2026-spring:~$ history | tail -5
+  367  19.03.2026 19:36:24  clear
+  368  19.03.2026 19:36:26  ls -la ~ | grep '^[^d].*\.'
+  369  19.03.2026 19:36:44  clear
+  370  19.03.2026 19:36:45  export HISTTIMEFORMAT="%d.%m.%Y %H:%M:%S  "
+  371  19.03.2026 19:36:48  history | tail -5
+
+eltex-pg1-v14@eltex-2026-spring:~$ date
+Thu Mar 19 07:36:58 PM +07 2026
+eltex-pg1-v14@eltex-2026-spring:~$ history | tail -3
+  372  19.03.2026 19:36:55  clear
+  373  19.03.2026 19:36:58  date
+  374  19.03.2026 19:37:01  history | tail -3
+eltex-pg1-v14@eltex-2026-spring:~$ tail -3 ~/.bash_history
+exi
+#1773923713
+exit
+eltex-pg1-v14@eltex-2026-spring:~$ export PROMPT_COMMAND="history -a"
+eltex-pg1-v14@eltex-2026-spring:~$ date
+Thu Mar 19 07:37:09 PM +07 2026
+eltex-pg1-v14@eltex-2026-spring:~$ tail -3 ~/.bash_histor
+tail: cannot open '/home/eltex-pg1-v14/.bash_histor' for reading: No such file or directory
+eltex-pg1-v14@eltex-2026-spring:~$ tail -3 ~/.bash_history
+date
+#1773923839
+tail -3 ~/.bash_histor
+
+eltex-pg1-v14@eltex-2026-spring:~$ DATE=$(date +%d.%m.%Y)
+eltex-pg1-v14@eltex-2026-spring:~$ TIME=$(date +%H:%M:%S)
+eltex-pg1-v14@eltex-2026-spring:~$ DATE_TIME="$DATE $TIME"
+eltex-pg1-v14@eltex-2026-spring:~$ echo $DATE
+19.03.2026
+eltex-pg1-v14@eltex-2026-spring:~$ echo $TIME
+19:37:40
+eltex-pg1-v14@eltex-2026-spring:~$ echo $DATE_TIME
+19.03.2026 19:37:40
+
+eltex-pg1-v14@eltex-2026-spring:~$ ls /bin /sbin | grep '[0-9]'
+addr2line
+b2sum
+base32
+base64
+bunzip2
+bzip2
+bzip2recover
+c89
+c89-gcc
+c99
+c99-gcc
+cpan5.36-x86_64-linux-gnu
+cpp-12
+diff3
+enc2xs
+gcc-12
+gcc-ar-12
+gcc-nm-12
+gcc-ranlib-12
+gcov-12
+gcov-dump-12
+gcov-tool-12
+grub-menulst2cfg
+grub-mkpasswd-pbkdf2
+grub-syslinux2cfg
+h2ph
+h2xs
+i386
+linux32
+linux64
+lto-dump-12
+md5sum
+md5sum.textutils
+pdb3
+pdb3.11
+perl5.36.0
+perl5.36-x86_64-linux-gnu
+ping4
+ping6
+pl2pm
+pod2html
+pod2man
+pod2text
+pod2usage
+py3clean
+py3compile
+py3versions
+pydoc3
+pydoc3.11
+pygettext3
+pygettext3.11
+python3
+python3.11
+sha1sum
+sha224sum
+sha256sum
+sha384sum
+sha512sum
+ssh-argv0
+systemd-id128
+traceroute6
+traceroute6.db
+x86_64
+x86_64-linux-gnu-addr2line
+x86_64-linux-gnu-ar
+x86_64-linux-gnu-as
+x86_64-linux-gnu-c++filt
+x86_64-linux-gnu-cpp
+x86_64-linux-gnu-cpp-12
+x86_64-linux-gnu-dwp
+x86_64-linux-gnu-elfedit
+x86_64-linux-gnu-gcc
+x86_64-linux-gnu-gcc-12
+x86_64-linux-gnu-gcc-ar
+x86_64-linux-gnu-gcc-ar-12
+x86_64-linux-gnu-gcc-nm
+x86_64-linux-gnu-gcc-nm-12
+x86_64-linux-gnu-gcc-ranlib
+x86_64-linux-gnu-gcc-ranlib-12
+x86_64-linux-gnu-gcov
+x86_64-linux-gnu-gcov-12
+x86_64-linux-gnu-gcov-dump
+x86_64-linux-gnu-gcov-dump-12
+x86_64-linux-gnu-gcov-tool
+x86_64-linux-gnu-gcov-tool-12
+x86_64-linux-gnu-gold
+x86_64-linux-gnu-gp-archive
+x86_64-linux-gnu-gp-collect-app
+x86_64-linux-gnu-gp-display-html
+x86_64-linux-gnu-gp-display-src
+x86_64-linux-gnu-gp-display-text
+x86_64-linux-gnu-gprof
+x86_64-linux-gnu-gprofng
+x86_64-linux-gnu-ld
+x86_64-linux-gnu-ld.bfd
+x86_64-linux-gnu-ld.gold
+x86_64-linux-gnu-lto-dump
+x86_64-linux-gnu-lto-dump-12
+x86_64-linux-gnu-nm
+x86_64-linux-gnu-objcopy
+x86_64-linux-gnu-objdump
+x86_64-linux-gnu-ranlib
+x86_64-linux-gnu-readelf
+x86_64-linux-gnu-size
+x86_64-linux-gnu-strings
+x86_64-linux-gnu-strip
+dumpe2fs
+e2freefrag
+e2fsck
+e2image
+e2label
+e2mmpstatus
+e2scrub
+e2scrub_all
+e2undo
+e4crypt
+e4defrag
+fsck.ext2
+fsck.ext3
+fsck.ext4
+killall5
+mke2fs
+mkfs.ext2
+mkfs.ext3
+mkfs.ext4
+resize2fs
+tune2fs
+update-grub2
+
+eltex-pg1-v14@eltex-2026-spring:~$ export PS1='\u@\h-$(date +%H:%M)> '
+eltex-pg1-v14@eltex-2026-spring-19:38> export PS1
+eltex-pg1-v14@eltex-2026-spring-19:38> bash
+eltex-pg1-v14@eltex-2026-spring:~$ exit
+exit
+eltex-pg1-v14@eltex-2026-spring-19:38>
+
+eltex-pg1-v14@eltex-2026-spring-19:38> mkdir -p ~/$(date +%Y)-{01,02,03,04,05,06,07,08,09,10,11,12}
+eltex-pg1-v14@eltex-2026-spring-19:38> ls ~ | grep $(date +%Y)
+2026-01
+2026-02
+2026-03
+2026-04
+2026-05
+2026-06
+2026-07
+2026-08
+2026-09
+2026-10
+2026-11
+2026-12
+
+
+
+
