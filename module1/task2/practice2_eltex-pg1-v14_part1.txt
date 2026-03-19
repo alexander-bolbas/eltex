@@ -1,0 +1,276 @@
+Using username "eltex-pg1-v14".
+Linux eltex-2026-spring 6.1.0-40-amd64 #1 SMP PREEMPT_DYNAMIC Debian 6.1.153-1 (2025-09-20) x86_64
+
+The programs included with the Debian GNU/Linux system are free software;
+the exact distribution terms for each program are described in the
+individual files in /usr/share/doc/*/copyright.
+
+Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
+permitted by applicable law.
+Last login: Wed Mar 18 23:27:18 2026 from 89.113.142.118
+eltex-pg1-v14@eltex-2026-spring:~$
+
+eltex-pg1-v14@eltex-2026-spring:~$ MYUSER=$(whoami)
+eltex-pg1-v14@eltex-2026-spring:~$ echo $MYUSER
+eltex-pg1-v14
+eltex-pg1-v14@eltex-2026-spring:~$
+script -a ~/practice2_${MYUSER}_part1.log
+Script started, output log file is '/home/eltex-pg1-v14/practice2_eltex-pg1-v14_part1.log'.
+eltex-pg1-v14@eltex-2026-spring:~$ ssh-keygen -t rsa -b 2048
+Generating public/private rsa key pair.
+Enter file in which to save the key (/home/eltex-pg1-v14/.ssh/id_rsa):
+/home/eltex-pg1-v14/.ssh/id_rsa already exists.
+Overwrite (y/n)?
+eltex-pg1-v14@eltex-2026-spring:~$ ssh-copy-id root@172.16.9.188
+/usr/bin/ssh-copy-id: INFO: Source of key(s) to be installed: "/home/eltex-pg1-v14/.ssh/id_rsa.pub"
+/usr/bin/ssh-copy-id: INFO: attempting to log in with the new key(s), to filter out any that are already installed
+
+/usr/bin/ssh-copy-id: WARNING: All keys were skipped because they already exist on the remote system.
+                (if you think this is a mistake, you may want to use -f option)
+
+eltex-pg1-v14@eltex-2026-spring:~$ ssh root@172.16.9.188
+Welcome to Ubuntu 24.04.2 LTS (GNU/Linux 6.8.0-55-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/pro
+
+ System information as of Thu Mar 19 11:39:27 AM UTC 2026
+
+  System load:  0.01               Processes:              114
+  Usage of /:   41.2% of 14.66GB   Users logged in:        0
+  Memory usage: 11%                IPv4 address for ens18: 172.16.9.188
+  Swap usage:   0%
+
+ * Strictly confined Kubernetes makes edge and IoT secure. Learn how MicroK8s
+   just raised the bar for easy, resilient and secure K8s cluster deployment.
+
+   https://ubuntu.com/engage/secure-kubernetes-at-the-edge
+
+Expanded Security Maintenance for Applications is not enabled.
+
+85 updates can be applied immediately.
+To see these additional updates run: apt list --upgradable
+
+Enable ESM Apps to receive additional future security updates.
+See https://ubuntu.com/esm or run: sudo pro status
+
+
+*** System restart required ***
+Last login: Tue Mar 17 10:35:10 2026 from 172.16.8.4
+root@eltex-practice2-pg1-v14:~#
+root@eltex-practice2-pg1-v14:~# cat ~/.ssh/authorized_keys
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDrZ3hxEm3YKyX/LQTry09ITWLgqnUEpFXzL5EfbLI1alRf75g4JlTlt/GHRxifyV3WyaBrJbuWJ8MUgX8zhtnWTDJHDx7IsgxgaTcTc4W7Y+BLai2lLr8bbzKfCK0shoLj+Y5TmDMZb1cVrPzLVDtMCWefswWGgmgTuIfSP711gUhlH7CYF60qa3vlrl5XRU4CUoSLQHWov22eMam4wNDqXQ3qjT4Bv2DXTN/KrYu+FA4wDMjDqcQD9xFh8PLs6olMJARSBDwbla/uK/G5QC1WXY/paOYVp9aEmiChbqod0RYInIUegCDFnTXW3bA4XTBEXM+gOAD2y6x1BHnmdxmFjPODe/YUlfUU3v/W7jJDEt7OeQ8P2JB9G4toonvGiJNz/4U/Ala1ETpwVRamX/6B5+Iv3qvqShgGwNAtNa1+u7zBjWaSnIDx5M3RpCuOhyPsxVFVhi1Yvv+8ZM5qbyail6OUULF3gnCHRt6s5hE5MFZ8uhoWi0CS+lR6B3PcW2Cf18IHITA/LyFR2FEkk8bNiI6fCIxby2FbNc49FC0/PWeBD2zgb+MmeRYfswjhfUbD2nBIjD/Z3cL6yqanh+ahNHPKiPrLZa2EfKrDO7xReaNigP0tcDQ+f02fr+JnUDbO+u5tmLM0mJozri4siZn4zWd4LaABS9865KerUM70LQ== eltex-pg1-v14@eltex-2026-spring
+root@eltex-practice2-pg1-v14:~# ls -la ~/.ssh/
+total 12
+drwx------ 2 root root 4096 Mar 12  2025 .
+drwx------ 4 root root 4096 Mar 17 11:42 ..
+-rw------- 1 root root  757 Mar 18 16:29 authorized_keys
+root@eltex-practice2-pg1-v14:~# useradd -m -s /bin/bash user1
+root@eltex-practice2-pg1-v14:~# passwd user1
+New password:
+Retype new password:
+passwd: password updated successfully
+
+root@eltex-practice2-pg1-v14:~# id user1
+uid=1001(user1) gid=1001(user1) groups=1001(user1)
+root@eltex-practice2-pg1-v14:~# ls /home/
+tech  user1
+root@eltex-practice2-pg1-v14:~# adduser user2
+info: Adding user `user2' ...
+info: Selecting UID/GID from range 1000 to 59999 ...
+info: Adding new group `user2' (1002) ...
+info: Adding new user `user2' (1002) with group `user2 (1002)' ...
+info: Creating home directory `/home/user2' ...
+info: Copying files from `/etc/skel' ...
+New password:
+Retype new password:
+No password has been supplied.
+New password:
+Retype new password:
+passwd: password updated successfully
+Changing the user information for user2
+Enter the new value, or press ENTER for the default
+        Full Name []:
+        Room Number []:
+        Work Phone []:
+        Home Phone []:
+        Other []:
+Is the information correct? [Y/n] Н
+Is the information correct? [Y/n] Y
+info: Adding new user `user2' to supplemental / extra groups `users' ...
+info: Adding user `user2' to group `users' ...
+root@eltex-practice2-pg1-v14:~# adduser user3
+info: Adding user `user3' ...
+info: Selecting UID/GID from range 1000 to 59999 ...
+info: Adding new group `user3' (1003) ...
+info: Adding new user `user3' (1003) with group `user3 (1003)' ...
+info: Creating home directory `/home/user3' ...
+info: Copying files from `/etc/skel' ...
+New password:
+Retype new password:
+passwd: password updated successfully
+Changing the user information for user3
+Enter the new value, or press ENTER for the default
+        Full Name []:
+        Room Number []:
+        Work Phone []:
+        Home Phone []:
+        Other []:
+Is the information correct? [Y/n] Y
+info: Adding new user `user3' to supplemental / extra groups `users' ...
+info: Adding user `user3' to group `users' ...
+root@eltex-practice2-pg1-v14:~# usermod -s /usr/sbin/nologin user3
+root@eltex-practice2-pg1-v14:~# su user3
+This account is currently not available.
+root@eltex-practice2-pg1-v14:~# su -s /bin/bash user3
+user3@eltex-practice2-pg1-v14:/root$
+user3@eltex-practice2-pg1-v14:/root$ exit
+exit
+root@eltex-practice2-pg1-v14:~#
+root@eltex-practice2-pg1-v14:~# groupadd sharedgroup
+root@eltex-practice2-pg1-v14:~# gpasswd -M user1,user2,user3 sharedgroup
+root@eltex-practice2-pg1-v14:~# groups user1 user2 user3
+user1 : user1 sharedgroup
+user2 : user2 users sharedgroup
+user3 : user3 users sharedgroup
+root@eltex-practice2-pg1-v14:~# mkdir -p /opt/share
+root@eltex-practice2-pg1-v14:~# chown :sharedgroup /opt/share
+root@eltex-practice2-pg1-v14:~# chmod 2770 /opt/share
+root@eltex-practice2-pg1-v14:~# ls -la /opt/
+total 12
+drwxr-xr-x  3 root root        4096 Mar 19 11:46 .
+drwxr-xr-x 23 root root        4096 Mar 12  2025 ..
+drwxrws---  2 root sharedgroup 4096 Mar 19 11:46 share
+root@eltex-practice2-pg1-v14:~# echo "umask 0026" >> /home/user1/.bashrc
+root@eltex-practice2-pg1-v14:~# su - user1 -c "umask"
+0002
+root@eltex-practice2-pg1-v14:~# su - user1 -c "touch /opt/share/file_user1"
+root@eltex-practice2-pg1-v14:~# su - user2 -c "touch /opt/share/file_user2"
+root@eltex-practice2-pg1-v14:~# su - user3 -s /bin/bash -c "touch /opt/share/file_user3"
+root@eltex-practice2-pg1-v14:~# ls -la /opt/share/
+total 8
+drwxrws--- 2 root  sharedgroup 4096 Mar 19 11:47 .
+drwxr-xr-x 3 root  root        4096 Mar 19 11:46 ..
+-rw-rw-r-- 1 user1 sharedgroup    0 Mar 19 11:47 file_user1
+-rw-rw-r-- 1 user2 sharedgroup    0 Mar 19 11:47 file_user2
+-rw-rw-r-- 1 user3 sharedgroup    0 Mar 19 11:47 file_user3
+root@eltex-practice2-pg1-v14:~# su - user1 -c "rm /opt/share/file_user2"
+root@eltex-practice2-pg1-v14:~# chmod +t /opt/share
+root@eltex-practice2-pg1-v14:~# echo "user1 ALL=(ALL) NOPASSWD: /bin/dmesg" > /etc/sudoers.d/user1
+root@eltex-practice2-pg1-v14:~# chmod 440 /etc/sudoers.d/user1
+root@eltex-practice2-pg1-v14:~# su - user1 -c "sudo dmesg | head -3"
+[    0.000000] Linux version 6.8.0-55-generic (buildd@lcy02-amd64-095) (x86_64-linux-gnu-gcc-13 (Ubuntu 13.3.0-6ubuntu2~24.04) 13.3.0, GNU ld (GNU Binutils for Ubuntu) 2.42) #57-Ubuntu SMP PREEMPT_DYNAMIC Wed Feb 12 23:42:21 UTC 2025 (Ubuntu 6.8.0-55.57-generic 6.8.12)
+[    0.000000] Command line: BOOT_IMAGE=/vmlinuz-6.8.0-55-generic root=/dev/mapper/ubuntu--vg-ubuntu--lv ro
+[    0.000000] KERNEL supported cpus:
+root@eltex-practice2-pg1-v14:~# cat > /usr/local/bin/dmesg_for_user2.sh << 'EOF'
+> #!/bin/bash
+> dmesg
+> EOF
+
+root@eltex-practice2-pg1-v14:~# chown root:root /usr/local/bin/dmesg_for_user2.sh
+root@eltex-practice2-pg1-v14:~# chmod 4755 /usr/local/bin/dmesg_for_user2.sh
+root@eltex-practice2-pg1-v14:~# su - user2 -c "/usr/local/bin/dmesg_for_user2.sh | head -3"
+dmesg: read kernel buffer failed: Operation not permitted
+
+root@eltex-practice2-pg1-v14:~# chage -M 10 user1 && chage -M 10 user2 && chage -M 10 user3
+root@eltex-practice2-pg1-v14:~# grep -E '^user(1|2|3):' /etc/shadow | cut -d: -f1,5
+user1:10
+user2:10
+user3:10
+root@eltex-practice2-pg1-v14:~# echo "Болбас Александр" > /etc/motd && cat /etc/motd
+Болбас Александр
+root@eltex-practice2-pg1-v14:~# mkdir -p /root/etc_backup
+root@eltex-practice2-pg1-v14:~# rsync -a /etc/ /root/etc_backup/
+root@eltex-practice2-pg1-v14:~# cd /root
+root@eltex-practice2-pg1-v14:~# tar -czf etc_backup.tar.gz etc_backup/
+root@eltex-practice2-pg1-v14:~# tar -cjf etc_backup.tar.bz2 etc_backup/
+/bin/sh: 1: bzip2: not found
+tar: etc_backup.tar.bz2: Cannot write: Broken pipe
+tar: Child returned status 127
+tar: Error is not recoverable: exiting now
+root@eltex-practice2-pg1-v14:~# tar -cJf etc_backup.tar.xz etc_backup/
+root@eltex-practice2-pg1-v14:~# ls -lh etc_backup.tar.gz  etc_backup.tar.xz
+-rw-r--r-- 1 root root 584K Mar 19 11:52 etc_backup.tar.gz
+-rw-r--r-- 1 root root 471K Mar 19 11:53 etc_backup.tar.xz
+root@eltex-practice2-pg1-v14:~# echo "Обновлено: $(date)" >> /etc/motd
+root@eltex-practice2-pg1-v14:~# rsync -a /etc/ /root/etc_backup/
+root@eltex-practice2-pg1-v14:~# cd /root
+root@eltex-practice2-pg1-v14:~# tar -czf etc_backup.tar.gz etc_backup/
+root@eltex-practice2-pg1-v14:~# tar -czf etc_backup.tar.gz etc_backup/
+root@eltex-practice2-pg1-v14:~# tar -djf etc_backup.tar.bz2 2>&1 | head -20
+tar (child): bzip2: Cannot exec: No such file or directory
+tar (child): Error is not recoverable: exiting now
+tar: Child returned status 2
+tar: Error is not recoverable: exiting now
+root@eltex-practice2-pg1-v14:~# tar -cjf etc_backup.tar.bz2 etc_backup/
+/bin/sh: 1: bzip2: not found
+tar: etc_backup.tar.bz2: Cannot write: Broken pipe
+tar: Child returned status 127
+tar: Error is not recoverable: exiting now
+root@eltex-practice2-pg1-v14:~# ^C
+root@eltex-practice2-pg1-v14:~# apt update && apt install bzip2 -y
+Hit:1 http://ru.archive.ubuntu.com/ubuntu noble InRelease
+Get:2 http://ru.archive.ubuntu.com/ubuntu noble-updates InRelease [126 kB]
+Get:3 http://security.ubuntu.com/ubuntu noble-security InRelease [126 kB]
+Get:4 http://ru.archive.ubuntu.com/ubuntu noble-backports InRelease [126 kB]
+Get:5 http://ru.archive.ubuntu.com/ubuntu noble-updates/main amd64 Packages [1,8                      39 kB]
+Get:6 http://security.ubuntu.com/ubuntu noble-security/main amd64 Packages [1,54                      2 kB]
+Get:7 http://ru.archive.ubuntu.com/ubuntu noble-updates/main Translation-en [338                       kB]
+Get:8 http://ru.archive.ubuntu.com/ubuntu noble-updates/main amd64 Components [1                      78 kB]
+Get:9 http://ru.archive.ubuntu.com/ubuntu noble-updates/restricted amd64 Compone                      nts [212 B]
+Get:10 http://ru.archive.ubuntu.com/ubuntu noble-updates/universe amd64 Packages                       [1,566 kB]
+Get:11 http://ru.archive.ubuntu.com/ubuntu noble-updates/universe amd64 Componen                      ts [386 kB]
+Get:12 http://ru.archive.ubuntu.com/ubuntu noble-updates/universe amd64 c-n-f Me                      tadata [33.0 kB]
+Get:13 http://ru.archive.ubuntu.com/ubuntu noble-updates/multiverse amd64 Compon                      ents [940 B]
+Get:14 http://ru.archive.ubuntu.com/ubuntu noble-backports/main amd64 Components                       [7,348 B]
+Get:15 http://ru.archive.ubuntu.com/ubuntu noble-backports/restricted amd64 Comp                      onents [216 B]
+Get:16 http://ru.archive.ubuntu.com/ubuntu noble-backports/universe amd64 Compon                      ents [13.2 kB]
+Get:17 http://ru.archive.ubuntu.com/ubuntu noble-backports/multiverse amd64 Comp                      onents [212 B]
+Get:18 http://security.ubuntu.com/ubuntu noble-security/main amd64 Components [2                      1.5 kB]
+Get:19 http://security.ubuntu.com/ubuntu noble-security/main amd64 c-n-f Metadat                      a [10.7 kB]
+Get:20 http://security.ubuntu.com/ubuntu noble-security/restricted amd64 Compone                      nts [212 B]
+Get:21 http://security.ubuntu.com/ubuntu noble-security/universe amd64 Packages                       [977 kB]
+Get:22 http://security.ubuntu.com/ubuntu noble-security/universe amd64 Component                      s [74.1 kB]
+Get:23 http://security.ubuntu.com/ubuntu noble-security/universe amd64 c-n-f Met                      adata [20.8 kB]
+Get:24 http://security.ubuntu.com/ubuntu noble-security/multiverse amd64 Compone                      nts [212 B]
+Fetched 7,387 kB in 1s (5,149 kB/s)
+
+root@eltex-practice2-pg1-v14:~# tar -cjf etc_backup.tar.bz2 etc_backup/
+root@eltex-practice2-pg1-v14:~# tar -djf etc_backup.tar.bz2 2>&1 | head -20
+
+root@eltex-practice2-pg1-v14:~# mkdir -p /root/etc_backup_gzip /root/etc_backup_7zip
+root@eltex-practice2-pg1-v14:~# tar -xzf etc_backup.tar.gz -C /root/etc_backup_gzip --strip-components=1
+root@eltex-practice2-pg1-v14:~# tar -xJf etc_backup.tar.xz -C /root/etc_backup_7zip --strip-components=1
+root@eltex-practice2-pg1-v14:~# diff /root/etc_backup_gzip/motd /root/etc_backup_7zip/motd
+2d1
+< Обновлено: Thu Mar 19 11:53:47 AM UTC 2026
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
